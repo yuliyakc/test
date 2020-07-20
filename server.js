@@ -28,7 +28,7 @@ http.createServer(function(request,response){
 }).listen(8080);
 console.log("Server has started.");
 
-function test() {
+/*function test() {
     let m = "Привет"
     return function test2() {
         alert(m);
@@ -36,6 +36,7 @@ function test() {
 }
 
 let l = test();
+*/
 
 
 
