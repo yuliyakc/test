@@ -1,6 +1,5 @@
 const http = require('http');
 const url = require('url');
-const fs = require('fs');
 
 http.createServer(function(request,response){
 
@@ -19,17 +18,7 @@ http.createServer(function(request,response){
     let urlParsed = url.parse(request.url, true);
     console.log(urlParsed);
 
-    if (urlParsed.pathname === '/') {
-        fs.readFile('./index.html', function(error, data){
-            if(error){
-                response.statusCode = 404;
-                response.end("Resourse not found!");
-            }   
-            else {
-                response.end(data);
-            }
-        });
-    } else if (urlParsed.pathname === '/server' && urlParsed.query) {
+    if (urlParsed.pathname === '/server' && urlParsed.query) {
         response.end( JSON.stringify(urlParsed.query));
     } else {
         response.statusCode = 404; // Not Found
